@@ -1,55 +1,34 @@
 
 import styles from '../styles/styles.module.css'
-import noImage from '../assets/no-image.jpg'
 import { useAdd } from '../hooks/addHook'
-import { Product } from '../interfaces/product'
+import {  createContext } from 'react'
+import { ProductContextProps, IProductProps } from '../interfaces/interfaces'
+ 
+
+export const ProductContext = createContext({} as ProductContextProps)
+const { Provider } = ProductContext
 
 
 
-interface IProductProps {
-    product: Product,
 
-}
-
-export const ProductCard = (product: IProductProps) => {
-    const { imageUrl, name } = product.product
-
+export const ProductCard = ({ product, children }: IProductProps) => {
     const { count, onClickButtonAdd } = useAdd(1)
     return (
-        <>
+        <Provider value={
             {
-                true &&
-                <>
-                    <div className={styles.productCard}>
-                        <img className={styles.productImg} src={imageUrl ? imageUrl: noImage } alt="Coffe Mug" />
-                        <span className={styles.productDescription}>{name}</span>
-                        <div className={styles.buttonsContainer}>
-                            <button className={styles.buttonMinus}
-                                onClick={() => { onClickButtonAdd(-1) }}
-                            >-</button>
-                            <div className={styles.countLabel}>{count}</div>
-                            <button className={styles.buttonAdd}
-                                onClick={() => { onClickButtonAdd(1) }}
-                            >+</button>
-
-                        </div>
-                    </div>
-
-                </>
+                count,
+                onClickButtonAdd,
+                product
             }
 
-            {
-                false &&
-                <div className={styles.productCard}>
-                    <img className={styles.productImg} src={noImage} alt="Coffe Mug" />
-                </div>
-            }
-
-
-
-        </>
-
+        }>
+            <div className={styles.productCard} >
+                {children}
+            </div>
+        </Provider>
     )
 }
+
+
 
 export default ProductCard
