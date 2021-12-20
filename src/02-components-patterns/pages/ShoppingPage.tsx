@@ -5,6 +5,8 @@ import {
     ProductTitle,
     ProductButtons
 } from "../components";
+import '../styles/custom-styles.css'
+ 
 
 const products: Product[] = [
     {
@@ -35,7 +37,9 @@ const products: Product[] = [
 ]
 export const ShoppingPage = () => {
     return (
-        <div>
+        <div  style={{
+             
+        }}>
             <h1>ShoppingPage</h1>
 
             <br />
@@ -48,9 +52,13 @@ export const ShoppingPage = () => {
             }} >
                 {
                     products.map((product) => (
-                        <ProductCard key={product.id} product={product} >
-                            <ProductCard.Image imageUrl="" />
-                            <ProductCard.Title />
+                        <ProductCard 
+                            key={product.id} 
+                            product={product} 
+                            
+                        >
+                            <ProductCard.Image imageUrl="" className='custom-image' />
+                            <ProductCard.Title  />
                             <ProductCard.Buttons />
                         </ProductCard>
                     ))
@@ -58,13 +66,40 @@ export const ShoppingPage = () => {
 
                 {
                     products.map((product) => (
-                        <ProductCard key={product.id} product={product} >
-                            <ProductImage imageUrl="" />
-                            <ProductTitle />
-                            <ProductButtons />
+
+                        <ProductCard
+                            key={product.id}
+                            product={product}
+                            className='bg-dark'
+                        >
+                            <ProductImage className="custom-image text-white" />
+                            <ProductTitle className="text-white" />
+                            <ProductButtons className="text-white custom-buttons"/>
+                          
                         </ProductCard>
                     ))
                 }
+
+
+{
+                    products.map((product) => (
+
+                        <ProductCard
+                            key={product.id}
+                            product={product}
+                            style= {{
+                                    backgroundColor: 'red'
+                            }}
+                             
+                        >
+                            <ProductImage />
+                            <ProductTitle  />
+                            <ProductButtons  />
+                          
+                        </ProductCard>
+                    ))
+                }
+
 
 
             </div>

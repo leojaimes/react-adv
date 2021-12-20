@@ -11,18 +11,21 @@ const { Provider } = ProductContext
 
 
 
-export const ProductCard = ({ product, children }: IProductProps) => {
+export const ProductCard = ({ product, children, className, style }: IProductProps) => {
     const { count, onClickButtonAdd } = useAdd(1)
     return (
         <Provider value={
             {
                 count,
                 onClickButtonAdd,
-                product
+                product,
+               
             }
 
         }>
-            <div className={styles.productCard} >
+            <div className={  `${styles.productCard} ${className} `} 
+                style={style}
+            >
                 {children}
             </div>
         </Provider>
