@@ -19,7 +19,8 @@ export interface IProductProps {
     children?: ReactElement | ReactElement[],
     className?: string, 
     style?: React.CSSProperties,
-    onChange? : (args: onChangeArgs   )=>void 
+    onChange? : (args: onChangeArgs   )=>void ,
+    value?:number
 
 }
 
