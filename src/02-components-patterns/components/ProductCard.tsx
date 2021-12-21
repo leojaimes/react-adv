@@ -11,8 +11,8 @@ const { Provider } = ProductContext
 
 
 
-export const ProductCard = ({ product, children, className, style }: IProductProps) => {
-    const { count, onClickButtonAdd } = useAdd(1)
+export const ProductCard = ({ product, children, className, style, onChange  }: IProductProps) => {
+    const { count, onClickButtonAdd } = useAdd(  { product, onChange } )
     return (
         <Provider value={
             {

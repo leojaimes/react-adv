@@ -7,11 +7,19 @@ export interface Product {
     imageUrl?: string,
 
 }
+
+
+export interface onChangeArgs {
+    product: Product;
+    count: number  ;
+ } 
+ 
 export interface IProductProps {
     product: Product;
     children?: ReactElement | ReactElement[],
     className?: string, 
     style?: React.CSSProperties,
+    onChange? : (args: onChangeArgs   )=>void 
 
 }
 
@@ -29,4 +37,3 @@ export interface ProductCardParentProps {
     Buttons: ({className  }: {className?: string }) => JSX.Element,
 
 }
-
