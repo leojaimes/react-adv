@@ -3,12 +3,15 @@ import styles from '../styles/styles.module.css'
 interface Props {
     text: string;
     onClick?: () => void;
-    className?: string
+    className?: string;
+    disabled?:boolean;
 }
 
-export const AddButton = ({ text = '', onClick = () => { }, className = '' }: Props) => {
+export const AddButton = ({ text = '', onClick = () => { }, className = '',disabled= false  }: Props) => {
     return (
-        <button className={`${styles.buttonMinus} ${className}`}
+        <button 
+            className={`${styles.buttonMinus} ${className}`}
+            disabled={ disabled }
             onClick={onClick}
         >{text}</button>
     )
