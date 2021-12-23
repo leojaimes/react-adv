@@ -1,6 +1,8 @@
-import { useForm } from '../hooks/useForm';
+  
 import { useFormik, FormikErrors } from 'formik'
-import reportWebVitals from '../../reportWebVitals';
+
+ 
+ 
 interface FormValues {
     firstName: string;
     email: string;
@@ -48,7 +50,7 @@ export const FormikBasicPage = () => {
         return  errors
     }
 
-    const { values, handleChange, handleSubmit, errors, validateOnBlur } = useFormik<FormValues>({
+    const { values, handleChange, handleSubmit, errors, touched, handleBlur } = useFormik<FormValues>({
         initialValues: {
             firstName: '',
             email: '',
@@ -72,8 +74,9 @@ export const FormikBasicPage = () => {
                     type="text"
                     value={firstName}
                     onChange={handleChange}
+                    onBlur={handleBlur }
                 />
-                {validateOnBlur && errors.firstName && <span>{errors.firstName}</span>}
+                {  touched.firstName  && errors.firstName && <span>{errors.firstName}</span>}
 
 
                 <label htmlFor="lastName">lastName</label>
@@ -82,8 +85,9 @@ export const FormikBasicPage = () => {
                     type="text"
                     value={lastName}
                     onChange={handleChange}
+                    onBlur={handleBlur }
                 />
-                 {validateOnBlur && errors.lastName && <span>{errors.lastName}</span>}
+                 {touched.lastName  && errors.lastName && <span>{errors.lastName}</span>}
 
 
 
@@ -93,15 +97,17 @@ export const FormikBasicPage = () => {
                     type="email"
                     value={email}
                     onChange={handleChange}
+                    onBlur={handleBlur }
                 />
 
-                {validateOnBlur && errors.email && <span>{errors.email}</span>}
+                {touched.email  && errors.email && <span>{errors.email}</span>}
 
 
                 {/*!isValidEmail(email) && <span>name is invalid</span>*/}
 
 
                 <button type="submit">Submit</button>
+                
 
 
             </form>
