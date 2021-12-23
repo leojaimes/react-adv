@@ -1,8 +1,7 @@
 
-import { useFormik, Field, Form, ErrorMessage, Formik } from 'formik'
+import {  Form,  Formik } from 'formik'
 import * as Yup from 'yup'
-import { MyCheckbox } from '../components/MyCheckBox';
-import { MySelect } from '../components/MySelect';
+import { MyCheckbox, MySelect, MyTextInput } from '../components'
 interface FormValues {
     firstName: string;
     email: string;
@@ -51,36 +50,41 @@ export const FormikAbstract = () => {
                 {
                     ({ values }) => (
                         <Form>
-                            <label htmlFor="firstName">firstName</label>
-
-                            <Field name="firstName" type="text" placeholder="firstName" />
-                            <ErrorMessage name="firstName" component="span" />
-
-                            <label htmlFor="lastName">lastName</label>
-                            <Field name="lastName" type="text" placeholder="lastName" />
-                            <ErrorMessage name="lastName" component="span" />
 
 
+                            <MyTextInput
+                                label="firstName"
+                                name="firstName"
+                                type="text"
+                                placeholder="firstName"
+                            />
+                            <MyTextInput
+                                label="lastName"
+                                name="lastName"
+                                type="text"
+                                placeholder="lastName"
+                            />
+                            <MyTextInput
+                                label="email"
+                                name="email"
+                                type="email"
+                                placeholder="lastName"
+                            />
 
-                            <label htmlFor="email">email</label>
-                            <Field name="email" type="text" placeholder="email" />
-                            <ErrorMessage name="email" component="span" />
 
 
-
-                         
-                            <MySelect  name="jobType" placeholder="jobType" label={'Select Job Type'} >
+                            <MySelect name="jobType" placeholder="jobType" label={'Select Job Type'} >
                                 <option value=""></option>
                                 <option value="react">React Dev</option>
                                 <option value="flutter">Flutter Dev</option>
                                 <option value="devops">Devops Dev</option>
                             </MySelect>
-                           
 
 
 
 
-                   
+
+
 
                             <MyCheckbox name="terms" label="Accept terms and conditions" />
 

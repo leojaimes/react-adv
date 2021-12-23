@@ -1,7 +1,6 @@
 
-import { useFormik, Field, Form, ErrorMessage, Formik } from 'formik'
+import {   Field, Form, ErrorMessage, Formik } from 'formik'
 import * as Yup from 'yup'
-import { MyTextInput } from '../components/MyTextInput';
  
 interface FormValues {
     firstName: string;
@@ -51,26 +50,21 @@ export const FormikComponents = () => {
                 {
                     ({ values, }) => (
                         <Form>
-                            <MyTextInput
-                                label="firstName"
-                                name="firstName"
-                                type="text"
-                                placeholder="firstName"
-                            />
-                            <MyTextInput
-                                label="lastName"
-                                name="lastName"
-                                type="text"
-                                placeholder="lastName"
-                            />
-                            <MyTextInput
-                                label="email"
-                                name="email"
-                                type="email"
-                                placeholder="lastName"
-                            />
+
+                            <label htmlFor="firstName">firstName</label>
+
+                            <Field name="firstName" type="text" placeholder="firstName" />
+                            <ErrorMessage name="firstName" component="span" />
+
+                            <label htmlFor="lastName">lastName</label>
+                            <Field name="lastName" type="text" placeholder="lastName" />
+                            <ErrorMessage name="lastName" component="span" />
 
 
+
+                            <label htmlFor="email">email</label>
+                            <Field name="email" type="text" placeholder="email" />
+                            <ErrorMessage name="email" component="span" />
 
 
                             <label htmlFor="jobType">Job Type</label>
@@ -91,7 +85,7 @@ export const FormikComponents = () => {
 
                             <ErrorMessage name="terms" component="span" />
 
-                        
+
 
 
                             <button type="submit">Submit</button>
