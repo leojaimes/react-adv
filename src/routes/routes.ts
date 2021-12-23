@@ -1,5 +1,6 @@
 import { lazy, LazyExoticComponent } from 'react';
 import { FormikBasicPage } from '../03-forms/pages/FormikBasicPage';
+import { FormikComponents } from '../03-forms/pages/FormikComponents';
 import { FormikYupPage } from '../03-forms/pages/FormikYupPage';
 // import { LazyPage1, LazyPage2, LazyPage3 } from '../01-lazyload/pages';
 // import { LazyPage1 } from '../01-lazyload/pages';
@@ -38,6 +39,12 @@ export const routes: Route[] = [
         path: 'formik-yup',
         Component: FormikYupPage,
         name: 'formik-yup'
+    }, 
+    {
+        to: '/formik-components',
+        path: 'formik-components',
+        Component: FormikComponents,
+        name: 'formik-components'
     },
 
 
