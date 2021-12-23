@@ -5,6 +5,7 @@ import { FormikYupPage } from '../03-forms/pages/FormikYupPage';
 // import { LazyPage1, LazyPage2, LazyPage3 } from '../01-lazyload/pages';
 // import { LazyPage1 } from '../01-lazyload/pages';
 import { RegisterPage } from '../03-forms/pages/RegisterPage';
+import { FormikAbstract } from '../03-forms/pages/FormikAbstract';
 
 type JSXComponent = () => JSX.Element;
 
@@ -45,6 +46,13 @@ export const routes: Route[] = [
         path: 'formik-components',
         Component: FormikComponents,
         name: 'formik-components'
+    },
+
+    {
+        to: '/formik-abstract',
+        path: 'formik-abstract',
+        Component: FormikAbstract,
+        name: 'formik-abstract'
     },
 
 
