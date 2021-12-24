@@ -34,9 +34,10 @@ export const RegisterFormikPage = () => {
     name: Yup.string().max(15, 'Must be max 15 characters').min(2, 'Must be min 2 characters').required('Required'),
     email: Yup.string().email('Invalid email').required('Required'),
     password: Yup.string().max(15, 'Must be max 15 characters').min(2, 'Must be min 2 characters').required('Required'),
-    confirmPassword: Yup.string().when('password', (password, field) =>
+    confirmPassword: Yup.string().oneOf([Yup.ref('password')], 'Passwords do not match').required('Required')
+    /*confirmPassword: Yup.string().when('password', (password, field) =>
       password ? field.required().oneOf([Yup.ref('password')], 'Passwords do not match') : field
-    ),
+    ),*/
   })
 
   return (
@@ -52,7 +53,7 @@ export const RegisterFormikPage = () => {
       >
 
         {
-          ({ isValid }) => (
+          ({ isValid, resetForm }) => (
 
             <Form >
 
@@ -95,8 +96,8 @@ export const RegisterFormikPage = () => {
                 Submit
               </button>
 
-              <button type="submit" onSubmit={() => {
-                
+              <button type="submit" onClick={() => {
+                resetForm()
               }} >
                 Reset
               </button>

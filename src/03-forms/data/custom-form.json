@@ -1,0 +1,87 @@
+[
+    {
+        "type": "input",
+        "name": "firstName",
+        "placeholder": "firstName",
+        "label": "firstName",
+        "value": "",
+        "validations": [
+            {
+                "type" : "required",
+                "message": "firstName is required"
+
+            }
+            
+        ]
+    },
+    {
+        "type": "input",
+        "name": "lastName",
+        "placeholder": "lastName",
+        "label": "lastName",
+        "value": "",
+        "validations": [
+            {
+                "type" : "required",
+                "message": "lastName is required"
+            }
+        ]
+    },
+    {
+        "type": "email",
+        "name": "email",
+        "placeholder": "email@email.com",
+        "label": "email",
+        "value": "",
+        "validations": [
+            {
+                "type" : "required",
+                 "message": "email is required"
+            },
+            {
+                "type" : "email",
+                "message": "email no valid"
+            }
+        ]
+    },
+    {
+        "type": "password",
+        "name": "password",
+        "placeholder": "password",
+        "label": "password",
+        "value": "",
+        "validations": [
+            {
+                "type" : "required",
+                "message": "password is required"
+            }
+        ]
+    },
+    {
+        "type": "select",
+        "name": "favoriteGame",
+        "placeholder": "favoriteGame",
+        "label": "favoriteGame",
+        "value": "",
+        "options": [
+            {
+                "value": "super-smash",
+                "name": "Super Smash"
+            },
+            {
+                "value": "metal-gear",
+                "name": "Metal Gear"
+            },
+            {
+                "value": "guild-wars",
+                "name": "Guild Wars"
+            }
+        ],
+        "validations": [
+            {
+                "type" : "required",
+                "message" : "required"
+            } 
+        ]
+    }
+]
