@@ -6,8 +6,8 @@ import "../styles/styles.css";
 interface RegisterForm {
   name: string;
   email: string;
-  password1: string;
-  password2: string;
+  password: string;
+  confirmPassword: string;
 }
 
 export const RegisterFormikPage = () => {
@@ -16,8 +16,8 @@ export const RegisterFormikPage = () => {
   const initialValues = {
     name: '',
     email: '',
-    password1: '',
-    password2: '',
+    password: '',
+    confirmPassword: '',
 
   }
   const onSubmit = (values: RegisterForm) => {
@@ -33,9 +33,9 @@ export const RegisterFormikPage = () => {
   const validationSchema = Yup.object({
     name: Yup.string().max(15, 'Must be max 15 characters').min(2, 'Must be min 2 characters').required('Required'),
     email: Yup.string().email('Invalid email').required('Required'),
-    password1: Yup.string().max(15, 'Must be max 15 characters').min(2, 'Must be min 2 characters').required('Required'),
-    password2: Yup.string().when('password1', (password1, field) =>
-      password1 ? field.required().oneOf([Yup.ref('password1')], 'Passwords do not match') : field
+    password: Yup.string().max(15, 'Must be max 15 characters').min(2, 'Must be min 2 characters').required('Required'),
+    confirmPassword: Yup.string().when('password', (password, field) =>
+      password ? field.required().oneOf([Yup.ref('password')], 'Passwords do not match') : field
     ),
   })
 
@@ -52,7 +52,7 @@ export const RegisterFormikPage = () => {
       >
 
         {
-          ({ resetForm }) => (
+          ({ isValid }) => (
 
             <Form >
 
@@ -75,8 +75,8 @@ export const RegisterFormikPage = () => {
 
               <MyTextInput
                 label="password"
-                name="password1"
-                placeholder="password1"
+                name="password"
+                placeholder="password"
                 type="password"
               />
 
@@ -86,17 +86,17 @@ export const RegisterFormikPage = () => {
 
               <MyTextInput
                 label="Repeat Password"
-                name="password2"
+                name="confirmPassword"
                 placeholder="Repeat pass"
                 type="password"
               />
 
-              <button type="submit" >
+              <button disabled={!isValid} type="submit" >
                 Submit
               </button>
 
               <button type="submit" onSubmit={() => {
-                resetForm()
+                
               }} >
                 Reset
               </button>
