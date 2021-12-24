@@ -35,6 +35,12 @@ export const DynamicForm = () => {
                 schema = schema.email(rule.message)
             }
 
+            if (rule.type === "minLength") {
+
+                schema = schema.min((rule as any).value || 2, rule.message)
+            }
+
+
         }
 
         requiredFields[input.name] = schema //agrega propiedad al objeto con el nombre input.name
@@ -45,7 +51,7 @@ export const DynamicForm = () => {
     const onSubmit = (values: any) => {
         console.log(values)
     }
-    const validationSchema = Yup.object( requiredFields)
+    const validationSchema = Yup.object(requiredFields)
 
 
     return (
