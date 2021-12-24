@@ -1,3 +1,6 @@
-export { MyCheckbox } from '../components/MyCheckBox';
-export { MySelect } from '../components/MySelect';
-export { MyTextInput } from '../components/MyTextInput';
+
+export { MySelect } from './MySelect';
+export { MyTextInput } from './MyTextInput';
+ 
+export  { MyCheck } from './MyCheck';
+ 

@@ -4,3 +4,4 @@ export { FormikYupPage } from '../03-forms/pages/FormikYupPage';
  
 export { RegisterPage } from '../03-forms/pages/RegisterPage';
 export { FormikAbstract } from '../03-forms/pages/FormikAbstract';
+export { RegisterFormikPage } from '../03-forms/pages/RegisterFormikPage';

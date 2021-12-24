@@ -1,7 +1,7 @@
 
 import {  Form,  Formik } from 'formik'
 import * as Yup from 'yup'
-import { MyCheckbox, MySelect, MyTextInput } from '../components'
+import {   /*MyCheckbox,*/  MyCheck, MySelect, MyTextInput } from '../components'
 interface FormValues {
     firstName: string;
     email: string;
@@ -86,7 +86,7 @@ export const FormikAbstract = () => {
 
 
 
-                            <MyCheckbox name="terms" label="Accept terms and conditions" />
+                          <MyCheck name="terms" label="Accept terms and conditions" /> 
 
 
 
