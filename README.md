@@ -123,3 +123,9 @@ yarn add -D gh-pages
 
 
 ```
+
+# Error en las rutas al dar refresh
+
+So as suggested by that link, I added a \_redirects file inside the /public folder like /public/\_redirects. I then pasted /\* /index.html 200 into the \_redirects file. I did all that in my VS Code, after which I pushed to github and then ofcourse my netlify re-deploys automatically everytime I push to github. My problem was solved and refresh nolonger brings the 404 error.
+
+https://create-react-app.dev/docs/deployment/#netlify
