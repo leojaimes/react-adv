@@ -90,7 +90,7 @@ yarn add -D gh-pages
     "yup": "^0.32.11"
   },
   "scripts": {
-    "predeploy": "yarn build && ",
+    "predeploy": "yarn build",
     "deploy" :"gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
